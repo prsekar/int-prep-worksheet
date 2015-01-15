@@ -14,6 +14,12 @@ public class PassByRef {
 		p21 = tmp;
 				
 	}
+	
+	public static void swap(int x, int y) {
+		int tmp = y;
+		y = x;
+		x = tmp;
+	}
 	public static void main(String[] args) {
 		Point p1 = new Point(); p1.x = 10; p1.y = 10;
 		Point p2 = new Point(); p2.x = 20; p2.y = 20;
@@ -22,6 +28,9 @@ public class PassByRef {
 		System.out.println(p1.x+ " "+ p1.y + "  " + p2.x + " " +p2.y);
 		swap(p1, p2);
 		System.out.println(p1.x+ " "+ p1.y + "  " + p2.x + " " +p2.y);
+		int x =10, y = 20;
+		swap(x,y);
+		System.out.println(x +"   "+ y);
 	}
 }
 

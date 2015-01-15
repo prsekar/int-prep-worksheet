@@ -14,7 +14,7 @@ public class WordSearch {
 	private String findStr = "hhspuiakvl";
 	private List<String> sampleStr = new ArrayList<String>();
 	char[] sampler = new char[] {'a', 'b', 'c', 'd','e','f','g','h', 'i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
-	@BeforeTest (description = "Generates List of random strings using commons.RandomUtils API")
+	@BeforeTest (description = "Generates List of hackerrank strings using commons.RandomUtils API")
 	public void beforeTest() {
 		for (int i=0;i<1000;i++) {
 			sampleStr.add(RandomStringUtils.random(10, sampler));

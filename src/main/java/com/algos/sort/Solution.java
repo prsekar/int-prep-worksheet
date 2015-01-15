@@ -2,22 +2,46 @@ package com.algos.sort;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 public class Solution {
-    public static void main(String args[] ) throws Exception {
-    	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        char[] s1 = br.readLine().toCharArray();
-        char[] s2 = br.readLine().toCharArray();
-        int s1sum=0,s2sum=0;
-        for (int i=0;i<s1.length;i++){
-             s1sum += s1[i];
-             s2sum += s2[i];
+
+    public static void insertionSortPart2(int[] ar) {
+        int pivot = 0;
+        while (pivot <= ar.length - 2) {
+            int elem = pivot + 1;
+            for (int i = 0; i <= pivot; i++) {
+                if (ar[elem] < ar[i]) {
+                    //insert in location i and move all from i+1 till pivot
+                    int tmp = ar[elem];
+                    int shifter = pivot + 1;
+                    ar[i] = tmp;
+                    while (shifter > i) {
+                        ar[shifter] = ar[shifter-1];
+                        shifter--;
+                        printArray(ar);
+                    }
+                    break;
+                }
+            }
+            pivot++;
         }
-        if (s1sum == s2sum) {
-        	System.out.println("Anagrams!");
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int s = in.nextInt();
+        int[] ar = new int[s];
+        for (int i = 0; i < s; i++) {
+            ar[i] = in.nextInt();
         }
-        else {
-        	System.out.println("Not anagrams!");
+        insertionSortPart2(ar);
+
+    }
+
+    private static void printArray(int[] ar) {
+        for (int n : ar) {
+            System.out.print(n + " ");
         }
-               
+        System.out.println("");
     }
 }
